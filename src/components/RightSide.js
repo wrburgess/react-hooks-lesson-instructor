@@ -5,16 +5,24 @@ class RightSide extends Component {
     widgetsCount: 5
   };
 
-  handleClick() {
+  handleClick(ev) {
+    ev.preventDefault();
     this.setState({ widgetsCount: this.state.widgetsCount + 1 });
   }
 
   render() {
     return (
       <div className="right">
-        <p>Right Component</p>
-        <p>Number of Widgets: `${this.widgetsCount}`</p>
-        <button onClick={this.handleClick}>Add Widget</button>
+        <p data-testid="title">Right Component</p>
+        <p data-testid="results">
+          Number of Widgets: {this.state.widgetsCount}
+        </p>
+        <button
+          data-testid="button-increment"
+          onClick={ev => this.handleClick(ev)}
+        >
+          Add Widget
+        </button>
       </div>
     );
   }

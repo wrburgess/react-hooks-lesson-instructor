@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 
-class LeftSide extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      widgetsCount: 2
-    };
-  }
+class Bottom extends Component {
+  state = {
+    widgetsCount: 10
+  };
 
   handleClick(ev) {
     ev.preventDefault();
@@ -16,8 +12,8 @@ class LeftSide extends Component {
 
   render() {
     return (
-      <div className="left">
-        <p data-testid="title">Left Component</p>
+      <div className="bottom">
+        <p data-testid="title">Bottom Component</p>
         <p data-testid="results">
           Number of Widgets: {this.state.widgetsCount}
         </p>
@@ -27,4 +23,4 @@ class LeftSide extends Component {
   }
 }
 
-export default LeftSide;
+export default Bottom;

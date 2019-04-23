@@ -1,26 +1,19 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class Bottom extends Component {
-  state = {
-    widgetsCount: 10
-  };
+function Bottom() {
+  const [widgetsCount, setWidgetsCount] = useState(10);
 
-  handleClick(ev) {
-    ev.preventDefault();
-    this.setState({ widgetsCount: this.state.widgetsCount + 1 });
+  function handleClick() {
+    setWidgetsCount(widgetsCount + 1);
   }
 
-  render() {
-    return (
-      <div className="bottom">
-        <p data-testid="title">Bottom Component</p>
-        <p data-testid="results">
-          Number of Widgets: {this.state.widgetsCount}
-        </p>
-        <button onClick={ev => this.handleClick(ev)}>Add Widget</button>
-      </div>
-    );
-  }
+  return (
+    <div className="bottom">
+      <p data-testid="title">Bottom Component</p>
+      <p data-testid="results">Number of Widgets: {widgetsCount}</p>
+      <button onClick={handleClick}>Add Widget</button>
+    </div>
+  );
 }
 
 export default Bottom;
